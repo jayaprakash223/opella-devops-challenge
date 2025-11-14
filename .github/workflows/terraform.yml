@@ -44,8 +44,10 @@ jobs:
       - name: Init & Plan for ${{ matrix.env }}
         working-directory: envs/${{ matrix.env }}
         run: |
-          terraform init -input=false
-          terraform plan -out=tfplan -input=false
+          terraform init -input=false -reconfigure
+          terraform fmt -check -recursive
+          terraform validate
+          terraform plan -out=tfplan -input=false -var-file=terraform.tfvars
 
       - name: Save plan output for ${{ matrix.env }}
         working-directory: envs/${{ matrix.env }}
@@ -86,8 +88,8 @@ jobs:
       - name: Init and apply dev
         working-directory: envs/dev
         run: |
-          terraform init -input=false
-          terraform apply -input=false -auto-approve
+          terraform init -input=false -reconfigure
+          terraform apply -input=false -auto-approve -var-file=terraform.tfvars
 
   apply_prod:
     name: Apply to Prod (requires approval)
@@ -117,5 +119,5 @@ jobs:
       - name: Init and apply prod
         working-directory: envs/prod
         run: |
-          terraform init -input=false
-          terraform apply -input=false -auto-approve
+          terraform init -input=false -reconfigure
+          terraform apply -input=false -auto-approve -var-file=terraform.tfvars

@@ -30,3 +30,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "subnet_id" {
+  description = "Optional: subnet id to restrict storage account access via virtual network"
+  type        = string
+  default     = ""
+}
