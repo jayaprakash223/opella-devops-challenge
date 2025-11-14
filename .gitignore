@@ -1,0 +1,70 @@
+# Terraform files
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Executable files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Sensitive/Config files
+*.key
+*.pem
+*.pub
+*.cert
+*.crt
+secrets.json
+config.local.*
+.env
+.env.local
+.env.*.local
+
+# Build and dependency directories
+node_modules/
+dist/
+build/
+bin/
+obj/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Terraform plan and local lock/state files
+# Ignore saved plan outputs and local state lock files created during CI or local runs
+tfplan
+*.tfplan
+tfplan*
+*.tfplan.json
+*.tfplan.txt
+.terraform.tfstate.lock.info
