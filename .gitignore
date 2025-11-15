@@ -60,11 +60,3 @@ obj/
 *.temp
 *.bak
 
-# Terraform plan and local lock/state files
-# Ignore saved plan outputs and local state lock files created during CI or local runs
-tfplan
-*.tfplan
-tfplan*
-*.tfplan.json
-*.tfplan.txt
-.terraform.tfstate.lock.info
